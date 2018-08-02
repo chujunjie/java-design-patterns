@@ -8,7 +8,7 @@ public class Customer {
     private Double totalAmount = 0D;   //客户消费总额
     private Double amount = 0D;   //客户单次消费金额
 
-    private CalPrice calPrice = new Origin();   //每个客户都有一个计算价格的策略,初始等级都为普通客户
+    private CalPrice calPrice;   //每个客户都有一个计算价格的策略,初始等级都为普通客户
 
     public Double getTotalAmount() {
         return totalAmount;
