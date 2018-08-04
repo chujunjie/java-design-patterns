@@ -1,4 +1,4 @@
-package com.demo.designpatterns.DecoratorPattern;
+package com.demo.designpatterns.decoratorPattern;
 
 /**
  * 调料 - 牛奶

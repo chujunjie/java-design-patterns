@@ -1,4 +1,4 @@
-package com.demo.designpatterns.DecoratorPattern;
+package com.demo.designpatterns.decoratorPattern;
 
 /**
  * @Description: 装饰者模式：
