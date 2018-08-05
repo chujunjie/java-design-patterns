@@ -1,7 +1,7 @@
 package com.demo.designpatterns.facadePattern;
 
 /**
- * @Description: 外观类，
+ * @Description: 外观类
  * @Author: chujunjie
  * @Date: Create in 20:19 2018/8/5
  * @Modified By
