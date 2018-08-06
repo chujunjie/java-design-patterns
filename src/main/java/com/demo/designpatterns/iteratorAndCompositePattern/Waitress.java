@@ -1,5 +1,7 @@
 package com.demo.designpatterns.iteratorAndCompositePattern;
 
+import java.util.Iterator;
+
 /**
  * @Description: 服务员
  * @Author: chujunjie
@@ -16,5 +18,20 @@ public class Waitress {
 
     public void printMenu() {
        allMenus.print();
+    }
+
+    public void printVegetarianMenu() {
+        Iterator iterator = allMenus.createIterator();
+        System.out.println("\n素食菜单\n-----");
+        while (iterator.hasNext()) {
+            MenuComponent component = (MenuComponent) iterator.next();
+            try {
+                if (component.isVegetarian()) {
+                    component.print();
+                }
+            } catch (UnsupportedOperationException e) {
+
+            }
+        }
     }
 }

@@ -46,9 +46,14 @@ public class Menu extends MenuComponent{
     }
 
     @Override
+    public Iterator createIterator() {
+        return new MyCompositeIterator(menuComponents.iterator());
+    }
+
+    @Override
     public void print() {
         System.out.print("\n" + getName());
-        System.out.println(", " + getDescription());
+        System.out.print(", " + getDescription());
         System.out.println("----------------");
 
         //遍历打印子菜单里面的所有菜品

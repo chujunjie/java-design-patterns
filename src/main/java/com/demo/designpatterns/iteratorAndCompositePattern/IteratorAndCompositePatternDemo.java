@@ -24,11 +24,13 @@ public class IteratorAndCompositePatternDemo {
         breakfastMenu.add(new MenuItem("蛋黄肉粽","嘉兴粽子",false,5));
 
         dessertMenu.add(new MenuItem("蛋糕","现做的",false,10));
+        dessertMenu.add(new MenuItem("西瓜汁","鲜榨的",true,10));
 
         lunchMenu.add(new MenuItem("炒饭","扬州牌",false,15));
         lunchMenu.add(dessertMenu);
 
         Waitress waitress = new Waitress(allMenus);
-        waitress.printMenu();
+//        waitress.printMenu();
+        waitress.printVegetarianMenu();
     }
 }

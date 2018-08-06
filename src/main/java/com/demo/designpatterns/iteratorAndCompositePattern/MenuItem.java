@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Iterator;
+
 /**
  * @Description: 菜单项目
  * @Author: chujunjie
@@ -22,12 +24,17 @@ public class MenuItem extends MenuComponent{
     private double price;
 
     @Override
+    public Iterator createIterator() {
+        return new NullIterator();
+    }
+
+    @Override
     public void print() {
         System.out.print(" " + getName());
         if (isVegetarian()) {
-            System.out.println("(v)");
+            System.out.print("(v)");
         }
-        System.out.println(", " + getPrice());
+        System.out.print(", " + getPrice());
         System.out.println("     ---" + getDescription());
     }
 }
