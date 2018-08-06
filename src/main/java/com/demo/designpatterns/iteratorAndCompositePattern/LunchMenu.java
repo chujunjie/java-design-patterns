@@ -8,7 +8,7 @@ import java.util.Iterator;
  * @Date: Create in 13:51 2018/8/6
  * @Modified By
  */
-public class LunchMenu implements Menu{
+public class LunchMenu{
 
     static final int MAX_ITEMS = 6;
     int numberOfItems = 0;
@@ -18,7 +18,6 @@ public class LunchMenu implements Menu{
         menuItems = new MenuItem[MAX_ITEMS];
     }
 
-    @Override
     public void addItem(MenuItem menuItem) {
         if (numberOfItems > MAX_ITEMS) {
             System.out.println("菜单已经满了！");
@@ -29,7 +28,6 @@ public class LunchMenu implements Menu{
     }
 
     //返回特定迭代器
-    @Override
     public Iterator createIterator() {
         return new LunchMenuIterator(menuItems);
     }

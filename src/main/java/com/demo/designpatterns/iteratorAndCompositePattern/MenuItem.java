@@ -15,9 +15,19 @@ import lombok.ToString;
 @Getter
 @AllArgsConstructor
 @ToString
-public class MenuItem {
+public class MenuItem extends MenuComponent{
     private String name;
     private String description;
     private boolean vegetarian;
     private double price;
+
+    @Override
+    public void print() {
+        System.out.print(" " + getName());
+        if (isVegetarian()) {
+            System.out.println("(v)");
+        }
+        System.out.println(", " + getPrice());
+        System.out.println("     ---" + getDescription());
+    }
 }

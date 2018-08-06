@@ -10,7 +10,7 @@ import java.util.List;
  * @Date: Create in 14:09 2018/8/6
  * @Modified By
  */
-public class BreakfastMenu implements Menu{
+public class BreakfastMenu {
 
     List<MenuItem> menuItems;
 
@@ -18,13 +18,11 @@ public class BreakfastMenu implements Menu{
         menuItems = new ArrayList<>();
     }
 
-    @Override
     public void addItem(MenuItem menuItem){
         menuItems.add(menuItem);
     }
 
     //ArrayList本身就有迭代器，直接返回即可
-    @Override
     public Iterator createIterator(){
         return menuItems.iterator();
     }

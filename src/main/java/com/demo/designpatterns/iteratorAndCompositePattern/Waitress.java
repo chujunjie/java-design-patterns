@@ -1,8 +1,5 @@
 package com.demo.designpatterns.iteratorAndCompositePattern;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 /**
  * @Description: 服务员
  * @Author: chujunjie
@@ -11,23 +8,13 @@ import java.util.Iterator;
  */
 public class Waitress {
 
-    ArrayList<Menu> menus;
+    MenuComponent allMenus;
 
-    public Waitress(ArrayList<Menu> menus) {
-        this.menus = menus;
+    public Waitress(MenuComponent allMenus) {
+        this.allMenus = allMenus;
     }
 
     public void printMenu() {
-        Iterator<Menu> menuIterator = menus.iterator();
-        while (menuIterator.hasNext()) {
-            Menu menu = menuIterator.next();
-            printMenu(menu.createIterator());
-        }
-    }
-
-    private void printMenu(Iterator iterator) {
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next().toString());
-        }
+       allMenus.print();
     }
 }
