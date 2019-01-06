@@ -1,6 +1,7 @@
 package com.demo.designpatterns.factoryPattern;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Description: 披萨接口
@@ -16,7 +17,7 @@ public abstract class Pizza {
     //酱料
     String sauce;
     //一系列佐料
-    ArrayList toppings = new ArrayList();
+    List<String> toppings = new ArrayList<>();
 
     //准备
     void prepare() {
@@ -24,8 +25,8 @@ public abstract class Pizza {
         System.out.println("打面团:" + dough);
         System.out.println("添加酱料：" + sauce);
         System.out.println("添加佐料:");
-        for(int i = 0;i < toppings.size();i++) {
-            System.out.println("" + toppings.get(i));
+        for (String topping : toppings) {
+            System.out.println("" + topping);
         }
     }
 
@@ -42,6 +43,8 @@ public abstract class Pizza {
         System.out.println("正在装盒...");
     }
 
-    public String getName(){ return name; }
+    public String getName(){
+        return name;
+    }
 
 }
