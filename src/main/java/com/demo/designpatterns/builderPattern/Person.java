@@ -16,6 +16,23 @@ public class Person {
     private boolean sex;
     private String address;
 
+    private Person(Builder builder) {
+        this.name = builder.name;
+        this.age = builder.age;
+        this.sex = builder.sex;
+        this.address = builder.address;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", address='" + address + '\'' +
+                '}';
+    }
+
     public static class Builder {
 
         private String name; //必要的参数
@@ -50,10 +67,4 @@ public class Person {
 
     }
 
-    private Person(Builder builder) {
-        this.name = builder.name;
-        this.age = builder.age;
-        this.sex = builder.sex;
-        this.address = builder.address;
-    }
 }
