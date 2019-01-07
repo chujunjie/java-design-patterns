@@ -36,7 +36,7 @@ public abstract class DrinkWithHook {
         System.out.println("添加佐料...");
     }
 
-    boolean customerWantsSeasoning() {    //钩子
-        return true;
+    boolean customerWantsSeasoning() {    //hook函数，
+        return false;
     }
 }
