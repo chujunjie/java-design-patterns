@@ -6,6 +6,7 @@ import java.lang.annotation.Annotation;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 使用简单工厂模式优化策略选择
@@ -22,22 +23,22 @@ public class CalPriceFactory {
     //根据客户的总金额产生相应的策略
     public CalPrice createCalPrice(Customer customer) {
 
-        /**
-         * 通过反射优化策略选择代码
-         *         if (customer.getTotalAmount() >= 30000) {
-         *             return new SuperVip();
-         *         } else if (customer.getTotalAmount() >= 10000) {
-         *             return new Vip();
-         *         } else {
-         *             return new Origin();
-         *         }
+        /*
+          通过反射优化策略选择代码
+                  if (customer.getTotalAmount() >= 30000) {
+                      return new SuperVip();
+                  } else if (customer.getTotalAmount() >= 10000) {
+                      return new Vip();
+                  } else {
+                      return new Origin();
+                  }
          */
-
-        //在策略列表中查找策略
         for (Class<? extends CalPrice> clazz : calPriceList) {
             PriceRegion validRegion = handleAnnotation(clazz);//获取该策略的注解
             //判断金额是否在注解区间
-            if (customer.getTotalAmount() > validRegion.min() && customer.getTotalAmount() <= validRegion.max()) {
+            if (null != validRegion
+                    && customer.getTotalAmount() > validRegion.min()
+                    && customer.getTotalAmount() <= validRegion.max()) {
                 try {
                     //是的话返回一个当前策略的实例
                     return clazz.newInstance();
@@ -59,9 +60,9 @@ public class CalPriceFactory {
             return null;
         }
         //如果注解不为空，判断注解是否为PriceRegion，是则返回
-        for (int i = 0; i < annotations.length; i++) {
-            if (annotations[i] instanceof PriceRegion) {
-                return (PriceRegion) annotations[i];
+        for (Annotation annotation : annotations) {
+            if (annotation instanceof PriceRegion) {
+                return (PriceRegion) annotation;
             }
         }
         return null;
@@ -73,6 +74,7 @@ public class CalPriceFactory {
     }
 
     //在工厂初始化时初始化策略列表
+    @SuppressWarnings("unchecked")
     private void init() {
 
         calPriceList = new ArrayList<>();
@@ -83,10 +85,10 @@ public class CalPriceFactory {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("未找到策略接口");
         }
-        for (int i = 0; i < resources.length; i++) {
+        for (File resource : resources) {
             try {
                 //载入包下的类
-                Class<?> clazz = classLoader.loadClass(CAL_PRICE_PACKAGE + "." + resources[i].getName().replace(".class", ""));
+                Class<?> clazz = classLoader.loadClass(CAL_PRICE_PACKAGE + "." + resource.getName().replace(".class", ""));
                 //判断是否是CalPrice的实现类并且不是它本身，满足的话加入到策略列表
                 if (CalPrice.class.isAssignableFrom(clazz) && clazz != calPriceClazz) {
                     calPriceList.add((Class<? extends CalPrice>) clazz);
@@ -100,15 +102,10 @@ public class CalPriceFactory {
     //获取扫描的包下面所有的class文件
     private File[] getResources() {
         try {
-            File file = new File(classLoader.getResource(CAL_PRICE_PACKAGE.replace(".", "/")).toURI());
-            return file.listFiles(new FileFilter() {
-                @Override
-                public boolean accept(File pathname) {
-                    if (pathname.getName().endsWith(".class")) {  //只扫描class文件
-                        return true;
-                    }
-                    return false;
-                }
+            File file = new File(Objects.requireNonNull(classLoader.getResource(CAL_PRICE_PACKAGE.replace(".", "/"))).toURI());
+            return file.listFiles(pathname -> {
+                //只扫描class文件
+                return pathname.getName().endsWith(".class");
             });
         } catch (URISyntaxException e) {
             throw new RuntimeException("未找到策略资源");
