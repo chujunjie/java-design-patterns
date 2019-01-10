@@ -1,7 +1,7 @@
 package com.demo.designpatterns.singletonPattern;
 
 /**
- * @Description: 懒汉式单例
+ * @Description: 懒汉式单例，延迟加载
  * @Author: chujunjie
  * @Date: Create in 12:34 2018/8/5
  * @Modified By

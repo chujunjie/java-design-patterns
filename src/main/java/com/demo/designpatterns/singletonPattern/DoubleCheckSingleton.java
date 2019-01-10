@@ -18,6 +18,10 @@ class DoubleCheckSingleton {
         if (instance == null) {
             synchronized (DoubleCheckSingleton.class) {
                 if (instance == null) {
+                    // 1.分配内存给对象
+                    // 2.初始化对象
+                    // 3.设置instance指向刚分配的内存
+                    // 2、3可能重排序，先指向内存之后，instance不为空，造成DCL失效问题（instance不是对象，而是引用）
                     instance = new DoubleCheckSingleton();
                 }
             }
