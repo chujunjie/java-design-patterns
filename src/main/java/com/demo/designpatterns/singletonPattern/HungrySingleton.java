@@ -13,6 +13,10 @@ public class HungrySingleton implements Serializable {
     private static HungrySingleton instance = new HungrySingleton();
 
     private HungrySingleton() {
+        // 简单防止反射攻击，适用于饿汉，静态内部类
+        if (null != instance) {
+            throw new RuntimeException("单例模式禁止反射调用");
+        }
     }
 
     public static HungrySingleton getInstance() {

@@ -1,6 +1,8 @@
 package com.demo.designpatterns.singletonPattern;
 
 import java.io.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 
 /**
  * @Description: 单例模式：确保一个类只产生一个实例，并提供一个全局访问点。
@@ -11,7 +13,9 @@ import java.io.*;
  * @Modified By
  */
 public class SingletonPatternDemo {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+    @SuppressWarnings("unchecked")
+    public static void main(String[] args) throws Exception {
         HungrySingleton hungrySingleton = HungrySingleton.getInstance();
         LazySingleton lazySingleton = LazySingleton.getInstance();
         DoubleCheckSingleton doubleCheckSingleton = DoubleCheckSingleton.getInstance();
@@ -29,6 +33,16 @@ public class SingletonPatternDemo {
 
         System.out.println(hungrySingleton);
         System.out.println(newSingleton);
+
+        //对单例的反射攻击
+        Class objClass = HungrySingleton.class;
+        HungrySingleton instance = HungrySingleton.getInstance();
+        Constructor constructor = objClass.getDeclaredConstructor();
+        constructor.setAccessible(true); // 设置访问权限
+        HungrySingleton newInstance = (HungrySingleton) constructor.newInstance();
+
+        System.out.println(instance);
+        System.out.println(newInstance);
     }
 
 }
