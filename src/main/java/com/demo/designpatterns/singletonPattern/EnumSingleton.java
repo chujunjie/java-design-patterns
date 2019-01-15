@@ -6,15 +6,20 @@ package com.demo.designpatterns.singletonPattern;
  * @Date: Create in 21:49 2019/1/13
  * @Modified By
  */
-public enum EnumSingleton {
-    INSTANCE;
-    private Object data;
+public enum EnumSingleton implements MySingleton{
+    INSTANCE {
+        @Override
+        public void doSomething() {  //实例方法
+            System.out.println("hello world");
+        }
+    };
+    private String data; // 属性
 
-    public Object getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(String data) {
         this.data = data;
     }
 

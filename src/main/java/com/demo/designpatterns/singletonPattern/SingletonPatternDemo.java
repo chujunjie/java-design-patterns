@@ -66,6 +66,9 @@ public class SingletonPatternDemo {
 
         System.out.println(instance);
         System.out.println(newInstance);
+
+        MySingleton mySingleton = EnumSingleton.getInstance();
+        mySingleton.doSomething();
     }
 
 }
