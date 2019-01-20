@@ -16,6 +16,9 @@ package com.demo.designpatterns.decoratorPattern;
  *               FileInpuStream是被装饰的“组件”。
  *               Java I/O程序库提供了几个组件，包括了FileInputStream、StringBufferInputStream、ByteArrayInputStream……等。
  *               这些类都提 供了最基本的字节读取功能。
+ *               spring-session
+ *               mybatis Cache
+ *               servlet: HttpServletRequestWrapper
  * @Author: chujunjie
  * @Date: Create in 22:19 2018/8/3
  * @Modified By
