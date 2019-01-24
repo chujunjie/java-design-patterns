@@ -1,10 +1,13 @@
-package com.demo.designpatterns.iteratorAndCompositePattern;
+package com.demo.designpatterns.compositePattern;
 
 /**
  * @Description: 迭代器模式:提供一种方法顺序访问一种聚合对象中的各个元素，而又不暴露其内部的表示。
  *               组合模式：组合模式允许你将对象组合成树形节后来表现“整体/部分”层次结构。组合能让客户以一致的方式处理个别对象以及对象组合。
  *
  *               原则：9.单一责任原则：一个类应该只有一个引起变化的原因，高内聚、低耦合
+ *
+ *               应用：HashMap.putAll() ArrayList.addAll()
+ *                    mybatis MixedSqlNode
  *
  * @Author: chujunjie
  * @Date: Create in 11:29 2018/8/6

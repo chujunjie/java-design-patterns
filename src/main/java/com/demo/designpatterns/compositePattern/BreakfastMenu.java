@@ -1,4 +1,4 @@
-package com.demo.designpatterns.iteratorAndCompositePattern;
+package com.demo.designpatterns.compositePattern;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class BreakfastMenu {
 
-    List<MenuItem> menuItems;
+    private List<MenuItem> menuItems;
 
     public BreakfastMenu() {
         menuItems = new ArrayList<>();

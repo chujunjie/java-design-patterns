@@ -1,4 +1,4 @@
-package com.demo.designpatterns.iteratorAndCompositePattern;
+package com.demo.designpatterns.compositePattern;
 
 import java.util.Iterator;
 
@@ -10,9 +10,9 @@ import java.util.Iterator;
  */
 public class LunchMenu{
 
-    static final int MAX_ITEMS = 6;
-    int numberOfItems = 0;
-    MenuItem[] menuItems;
+    private static final int MAX_ITEMS = 6;
+    private int numberOfItems = 0;
+    private MenuItem[] menuItems;
 
     public LunchMenu() {
         menuItems = new MenuItem[MAX_ITEMS];

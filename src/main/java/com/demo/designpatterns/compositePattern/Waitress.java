@@ -1,4 +1,4 @@
-package com.demo.designpatterns.iteratorAndCompositePattern;
+package com.demo.designpatterns.compositePattern;
 
 import java.util.Iterator;
 
@@ -10,9 +10,9 @@ import java.util.Iterator;
  */
 public class Waitress {
 
-    MenuComponent allMenus;
+    private MenuComponent allMenus;
 
-    public Waitress(MenuComponent allMenus) {
+    Waitress(MenuComponent allMenus) {
         this.allMenus = allMenus;
     }
 
@@ -30,7 +30,7 @@ public class Waitress {
                     component.print();
                 }
             } catch (UnsupportedOperationException e) {
-
+                e.printStackTrace();
             }
         }
     }

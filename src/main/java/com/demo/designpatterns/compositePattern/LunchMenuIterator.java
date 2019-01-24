@@ -1,4 +1,4 @@
-package com.demo.designpatterns.iteratorAndCompositePattern;
+package com.demo.designpatterns.compositePattern;
 
 import java.util.Iterator;
 
@@ -10,11 +10,11 @@ import java.util.Iterator;
  */
 public class LunchMenuIterator implements Iterator {
 
-    MenuItem[] items;
-    int position = 0;  //记录当前数组遍历的位置
+    private MenuItem[] items;
+    private int position = 0;  //记录当前数组遍历的位置
 
     //构造器需要被传入一个菜单项的数组当做参数。
-    public LunchMenuIterator(MenuItem[] items) {
+    LunchMenuIterator(MenuItem[] items) {
         this.items = items;
     }
 
@@ -25,10 +25,7 @@ public class LunchMenuIterator implements Iterator {
      */
     @Override
     public boolean hasNext() {
-        if (position >= items.length || items[position] == null) {
-            return false;
-        }
-        return true;
+        return position < items.length && items[position] != null;
     }
 
     @Override

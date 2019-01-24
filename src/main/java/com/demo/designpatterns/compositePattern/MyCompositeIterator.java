@@ -1,4 +1,4 @@
-package com.demo.designpatterns.iteratorAndCompositePattern;
+package com.demo.designpatterns.compositePattern;
 
 import java.util.Iterator;
 import java.util.Stack;
@@ -11,12 +11,13 @@ import java.util.Stack;
  */
 public class MyCompositeIterator implements Iterator {
 
-    Stack stack = new Stack();
+    private Stack stack = new Stack();
 
     /*
     将需要遍历的顶层组合的迭代器传入，并放进一个堆栈数据结构中
     */
-    public MyCompositeIterator(Iterator iterator) {
+    @SuppressWarnings("unchecked")
+    MyCompositeIterator(Iterator iterator) {
         stack.push(iterator);
     }
 
@@ -42,6 +43,7 @@ public class MyCompositeIterator implements Iterator {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public Object next() {
         if (hasNext()) {
             //如果有下一个元素，就从堆栈中取出目前的迭代器，然后取得他的下一个元素

@@ -1,7 +1,8 @@
-package com.demo.designpatterns.iteratorAndCompositePattern;
+package com.demo.designpatterns.compositePattern;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @Description:
@@ -11,11 +12,11 @@ import java.util.Iterator;
  */
 public class Menu extends MenuComponent{
 
-    ArrayList<MenuComponent> menuComponents = new ArrayList<>();
-    String name;
+    private List<MenuComponent> menuComponents = new ArrayList<>();
+    private String name;
     String description;
 
-    public Menu(String name, String description) {
+    Menu(String name, String description) {
         this.name = name;
         this.description = description;
     }
@@ -57,9 +58,7 @@ public class Menu extends MenuComponent{
         System.out.println("----------------");
 
         //遍历打印子菜单里面的所有菜品
-        Iterator<MenuComponent> menuComponentIterator = menuComponents.iterator();
-        while (menuComponentIterator.hasNext()) {
-            MenuComponent menuComponent = menuComponentIterator.next();
+        for (MenuComponent menuComponent : menuComponents) {
             menuComponent.print();
         }
     }
