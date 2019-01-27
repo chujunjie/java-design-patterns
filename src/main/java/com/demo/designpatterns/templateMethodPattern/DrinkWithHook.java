@@ -11,7 +11,7 @@ package com.demo.designpatterns.templateMethodPattern;
 public abstract class DrinkWithHook {
 
     //声明为final,以免子类对算法重排序
-    final void prepareDrink() {
+    protected final void prepareDrink() {
         boilWater();
         brewing();
         pourInCup();
@@ -21,7 +21,7 @@ public abstract class DrinkWithHook {
     }
 
     //把水煮沸
-    void boilWater() {
+    private void boilWater() {
         System.out.println("水煮沸了...");
     }
 
@@ -32,11 +32,11 @@ public abstract class DrinkWithHook {
     abstract void pourInCup();
 
     //添加佐料
-    void addSeasoning() {
+    private void addSeasoning() {
         System.out.println("添加佐料...");
     }
 
-    boolean customerWantsSeasoning() {    //hook函数，
+    boolean customerWantsSeasoning() {    //hook函数
         return false;
     }
 }

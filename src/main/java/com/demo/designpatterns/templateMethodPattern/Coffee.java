@@ -24,15 +24,12 @@ public class Coffee extends DrinkWithHook {
     @Override
     boolean customerWantsSeasoning() {
         String answer = getUserInput();
-        if (answer.toLowerCase().startsWith("y")) {
-            return true;
-        }
-        return false;
+        return answer.toLowerCase().startsWith("y");
     }
 
     private String getUserInput() {
         String answer = null;
-        System.out.println("您的咖啡需要加牛奶和咖啡吗（Y/N）？");
+        System.out.println("您的咖啡需要加牛奶和方糖吗（Y/N）？");
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         try {
             answer = in.readLine();
