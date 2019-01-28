@@ -12,6 +12,10 @@ package com.demo.designpatterns.strategyPattern;
  *               1.针对同一类型问题的多种处理方式，仅仅是具体行为有差别时；
  *               2.需要安全地封装多种同一类型的操作时；
  *               3.出现同一抽象类有多个子类，而又需要使用 if-else 或者 switch-case 来选择具体子类时。
+ *
+ *               应用：Comparator不同的比较器
+ *                    spring Resource策略接口
+ *                    spring bean初始化 InstantiationStrategy
  * @Author: chujunjie
  * @Date: Create in 18:56 2018/8/1
  * @Modified By

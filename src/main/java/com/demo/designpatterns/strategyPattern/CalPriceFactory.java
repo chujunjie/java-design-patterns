@@ -1,7 +1,6 @@
 package com.demo.designpatterns.strategyPattern;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.lang.annotation.Annotation;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
