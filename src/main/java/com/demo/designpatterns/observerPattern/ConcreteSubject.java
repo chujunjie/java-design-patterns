@@ -10,15 +10,15 @@ import java.util.ArrayList;
  */
 public class ConcreteSubject implements Subject {
 
-    //用来标记是否自动推送给观察者
+    // 用来标记是否自动推送给观察者
     private boolean changed = true;
 
-    private ArrayList observers = new ArrayList();  //观察者列表
-    private float temperature;  //温度
-    private float humidity;  //湿度
-    private float pressure;  //气压
+    private ArrayList<Observer> observers = new ArrayList<>();  // 观察者列表
+    private float temperature;  // 温度
+    private float humidity;  // 湿度
+    private float pressure;  // 气压
 
-    //这两个方法都需要一个观察者作为变量，该观察者是用来注册或被删除的。
+    // 这两个方法都需要一个观察者作为变量，该观察者是用来注册或被删除的。
     @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
@@ -34,16 +34,13 @@ public class ConcreteSubject implements Subject {
         }
     }
 
-    //当主题状态改变时，这个方法会被调用，以通知所有的观察者。
+    // 当主题状态改变时，这个方法会被调用，以通知所有的观察者。
     @Override
     public void notifyObserver() {
         if (observers.size() == 0) {
             System.out.println("当前没有观察者存在！");
         }
-        for (int i = 0;i < observers.size();i++) {
-            Observer observer = (Observer)observers.get(i);
-            observer.update(temperature,humidity,pressure);
-        }
+        observers.forEach(observer -> observer.update(temperature, humidity, pressure));
     }
 
     protected synchronized void setChanged() {

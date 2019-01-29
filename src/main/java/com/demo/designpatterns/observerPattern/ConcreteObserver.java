@@ -13,7 +13,7 @@ public class ConcreteObserver implements Observer {
     private float pressure;
 
     @Override
-    public void update(float temperature,float humidity,float pressure) {
+    public void update(float temperature, float humidity, float pressure) {
         this.temperature = temperature;
         System.out.println("温度观察者更新状态了! 当前温度为" + temperature);
     }
