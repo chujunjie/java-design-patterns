@@ -9,11 +9,9 @@ package com.demo.designpatterns.commandPattern;
 public class NoCommand implements Command{
     @Override
     public void execute() {
-
     }
 
     @Override
     public void undo() {
-
     }
 }

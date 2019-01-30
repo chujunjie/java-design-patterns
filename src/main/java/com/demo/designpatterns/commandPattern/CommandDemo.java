@@ -6,6 +6,7 @@ package com.demo.designpatterns.commandPattern;
  *
  *                应用场景：(1)队列请求：如日程安排、线程池、工作队列
  *                          (2)日志请求：事务等
+ *                应用：Junit Test
  * @Author: chujunjie
  * @Date: Create in 13:49 2018/8/5
  * @Modified By

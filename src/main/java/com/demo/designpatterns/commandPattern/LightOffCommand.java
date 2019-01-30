@@ -8,7 +8,7 @@ package com.demo.designpatterns.commandPattern;
  */
 public class LightOffCommand implements Command {
 
-    Light light;
+    private Light light;
 
     public LightOffCommand(Light light) {
         this.light = light;
