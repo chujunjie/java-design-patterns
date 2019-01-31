@@ -1,4 +1,4 @@
-package com.demo.designpatterns.statusPattern;
+package com.demo.designpatterns.statePattern;
 
 /**
  * @Description:
@@ -6,10 +6,11 @@ package com.demo.designpatterns.statusPattern;
  * @Date: Create in 14:16 2018/8/7
  * @Modified By
  */
-public class SoldOutStatus implements Status {
-    GumballMachine gumballMachine;
+public class SoldOutState implements State {
 
-    public SoldOutStatus(GumballMachine gumballMachine) {
+    private GumballMachine gumballMachine;
+
+    public SoldOutState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
     }
 

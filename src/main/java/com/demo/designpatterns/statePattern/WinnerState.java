@@ -1,4 +1,4 @@
-package com.demo.designpatterns.statusPattern;
+package com.demo.designpatterns.statePattern;
 
 /**
  * @Description:
@@ -6,10 +6,11 @@ package com.demo.designpatterns.statusPattern;
  * @Date: Create in 14:13 2018/8/7
  * @Modified By
  */
-public class WinnerStatus implements Status {
-    GumballMachine gumballMachine;
+public class WinnerState implements State {
 
-    public WinnerStatus(GumballMachine gumballMachine) {
+    private GumballMachine gumballMachine;
+
+    public WinnerState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
     }
 
@@ -29,14 +30,14 @@ public class WinnerStatus implements Status {
         System.out.println("You're a winner ! you get two gumballs for your quarter");
         gumballMachine.releaseBall();
         if (gumballMachine.getCount() == 0) {
-            gumballMachine.setStatus(gumballMachine.getSoldOutStatus());
+            gumballMachine.setState(gumballMachine.getSoldOutState());
         } else {
             gumballMachine.releaseBall();
             if (gumballMachine.getCount() > 0) {
-                gumballMachine.setStatus(gumballMachine.getNoQuarterStatus());
+                gumballMachine.setState(gumballMachine.getNoQuarterState());
             } else {
                 System.out.println("Oops, out of gumballs");
-                gumballMachine.setStatus(gumballMachine.getSoldOutStatus());
+                gumballMachine.setState(gumballMachine.getSoldOutState());
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.demo.designpatterns.statusPattern;
+package com.demo.designpatterns.statePattern;
 
 /**
  * @Description: 状态接口
@@ -6,7 +6,8 @@ package com.demo.designpatterns.statusPattern;
  * @Date: Create in 14:05 2018/8/7
  * @Modified By
  */
-public interface Status {
+public interface State {
+
     void insertQuarter();
 
     void ejectQuarter();

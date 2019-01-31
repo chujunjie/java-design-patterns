@@ -1,4 +1,4 @@
-package com.demo.designpatterns.statusPattern;
+package com.demo.designpatterns.statePattern;
 
 import java.util.Random;
 
@@ -8,12 +8,12 @@ import java.util.Random;
  * @Date: Create in 14:13 2018/8/7
  * @Modified By
  */
-public class HasQuarterStatus implements Status{
+public class HasQuarterState implements State {
 
-    Random randomWinner = new Random(System.currentTimeMillis());
-    GumballMachine gumballMachine;
+    private Random randomWinner = new Random(System.currentTimeMillis());
+    private GumballMachine gumballMachine;
 
-    public HasQuarterStatus(GumballMachine gumballMachine) {
+    public HasQuarterState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
     }
 
@@ -23,16 +23,16 @@ public class HasQuarterStatus implements Status{
 
     public void ejectQuarter() {
         System.out.println("Quarter returned");
-        gumballMachine.setStatus(gumballMachine.getNoQuarterStatus());
+        gumballMachine.setState(gumballMachine.getNoQuarterState());
     }
 
     public void turnCrank() {
         System.out.println("You turned..");
         int winner = randomWinner.nextInt(10);
         if ((winner == 0) && (gumballMachine.getCount() > 1)) {
-            gumballMachine.setStatus(gumballMachine.getWinnerStatus());
+            gumballMachine.setState(gumballMachine.getWinnerState());
         } else {
-            gumballMachine.setStatus(gumballMachine.getSoldStatus());
+            gumballMachine.setState(gumballMachine.getSoldState());
         }
     }
 

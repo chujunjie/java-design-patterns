@@ -1,4 +1,4 @@
-package com.demo.designpatterns.statusPattern;
+package com.demo.designpatterns.statePattern;
 
 /**
  * @Description: 状态模式：允许对象在内部状态改变时改变它的行为，对象看起来好像修改了它的类。
@@ -15,16 +15,13 @@ package com.demo.designpatterns.statusPattern;
 public class statusPatternDemo {
     public static void main(String[] args) {
         GumballMachine gumballMachine = new GumballMachine(5);
-        System.out.println(gumballMachine);
 
         gumballMachine.insertQuarter();
         gumballMachine.turnCrank();
-        System.out.println(gumballMachine);
 
         gumballMachine.insertQuarter();
         gumballMachine.turnCrank();
         gumballMachine.insertQuarter();
         gumballMachine.turnCrank();
-        System.out.println(gumballMachine);
     }
 }

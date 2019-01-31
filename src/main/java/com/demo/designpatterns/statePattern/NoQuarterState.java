@@ -1,4 +1,4 @@
-package com.demo.designpatterns.statusPattern;
+package com.demo.designpatterns.statePattern;
 
 /**
  * @Description:
@@ -6,17 +6,18 @@ package com.demo.designpatterns.statusPattern;
  * @Date: Create in 14:24 2018/8/7
  * @Modified By
  */
-public class NoQuarterStatus implements Status {
-    GumballMachine gumballMachine;
+public class NoQuarterState implements State {
 
-    public NoQuarterStatus(GumballMachine gumballMachine) {
+    private GumballMachine gumballMachine;
+
+    public NoQuarterState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
     }
 
     @Override
     public void insertQuarter() {
         System.out.println("You insert a quarter");
-        gumballMachine.setStatus(gumballMachine.getHasQuarterStatus());
+        gumballMachine.setState(gumballMachine.getHasQuarterState());
     }
 
     @Override
