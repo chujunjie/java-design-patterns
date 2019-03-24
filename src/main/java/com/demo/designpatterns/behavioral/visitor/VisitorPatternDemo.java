@@ -11,6 +11,7 @@ import java.util.List;
  *
  *                   应用：JDK FileVisitor
  *                         spring BeanDefinitionVisitor
+ *                         javac词法分析器、词义分析器、语义分析器和代码生成器中很多遍历语法树的过程
  * @Author: chujunjie
  * @Date: Create in 21:15 2019/1/31
  * @Modified By
