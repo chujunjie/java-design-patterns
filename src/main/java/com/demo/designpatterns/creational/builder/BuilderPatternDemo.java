@@ -4,6 +4,11 @@ import com.google.common.collect.ImmutableSet;
 
 import java.util.Set;
 
+import static com.demo.designpatterns.creational.builder.NyPizza.Size.LARGE;
+import static com.demo.designpatterns.creational.builder.Pizza.Topping.HAM;
+import static com.demo.designpatterns.creational.builder.Pizza.Topping.ONION;
+import static com.demo.designpatterns.creational.builder.Pizza.Topping.SAUSAGE;
+
 /**
  * @Description: 构建者模式，可以有多个可变参数
  *               为了创建对象，必须先创建它的构造器，所以会带来性能损失
@@ -23,5 +28,8 @@ public class BuilderPatternDemo {
 
         Set<String> immutableSet = ImmutableSet.<String>builder().add("hello").add("world").build();
         System.out.println(immutableSet);
+
+        NyPizza nyPizza = new NyPizza.Builder(LARGE).addTopping(SAUSAGE).addTopping(ONION).build();
+        Calzone calzone = new Calzone.Builder().sauceInside().addTopping(HAM).build();
     }
 }
