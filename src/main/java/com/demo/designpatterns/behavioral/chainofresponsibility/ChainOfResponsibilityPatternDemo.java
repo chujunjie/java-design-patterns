@@ -15,17 +15,11 @@ package com.demo.designpatterns.behavioral.chainofresponsibility;
  */
 public class ChainOfResponsibilityPatternDemo {
     public static void main(String[] args) {
-        FormHandler titleHandler = new TitleHandler();
-        FormHandler contentHandler = new ContentHandler();
-        FormHandler signatureHandler = new SignatureHandler();
-
-        Form form = new Form();
-        form.setTitle("设计模式");
-        form.setContent("xxx");
-
-        titleHandler.setNextHandler(contentHandler);
-        contentHandler.setNextHandler(signatureHandler);
-
-        titleHandler.check(form);
+        Article article = new Article.Builder("Effective Java").author("Joshua Bloch").content("xxx").build();
+        Pipeline pipeline = new StandardPipeline(article);
+        pipeline.setBasic(TitleValve::new)
+                .addValve(AuthorValve::new)
+                .addValve(ContentValve::new);
+        pipeline.handle();
     }
 }
