@@ -16,7 +16,7 @@ package com.demo.designpatterns.behavioral.chainofresponsibility;
 public class ChainOfResponsibilityPatternDemo {
     public static void main(String[] args) {
         Article article = new Article.Builder("Effective Java").author("Joshua Bloch").content("xxx").build();
-        Pipeline pipeline = new StandardPipeline(article);
+        Pipeline<Article> pipeline = new StandardPipeline<>(article);
         pipeline.setBasic(TitleValve::new)
                 .addValve(AuthorValve::new)
                 .addValve(ContentValve::new);

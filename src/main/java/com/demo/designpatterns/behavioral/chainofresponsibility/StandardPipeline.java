@@ -8,7 +8,7 @@ import java.util.function.Supplier;
  * @Date: Create in 21:34 2019/7/2
  * @Modified By
  */
-public class StandardPipeline implements Pipeline {
+public class StandardPipeline<T> implements Pipeline<T> {
     private Article article;
     private Valve basic;
 
@@ -17,7 +17,7 @@ public class StandardPipeline implements Pipeline {
     }
 
     @Override
-    public Pipeline setBasic(Supplier<? extends Valve> supplier) {
+    public Pipeline<T> setBasic(Supplier<? extends Valve> supplier) {
         this.basic = supplier.get();
         return this;
     }
@@ -28,7 +28,7 @@ public class StandardPipeline implements Pipeline {
     }
 
     @Override
-    public Pipeline addValve(Supplier<? extends Valve> supplier) {
+    public Pipeline<T> addValve(Supplier<? extends Valve> supplier) {
         if (null == this.basic) {
             this.basic = supplier.get();
             return this;
