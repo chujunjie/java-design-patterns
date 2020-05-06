@@ -15,7 +15,7 @@ public class ContainerSingleton {
 
     private static Map<String, Object> singletonMap = new HashMap<>();
 
-    private ContainerSingleton(){
+    private ContainerSingleton() {
     }
 
     public static void putInstance(String key, Object instance) {

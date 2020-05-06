@@ -12,9 +12,9 @@ public class CaliforniaPizzaFactory {
 
     //抽象方法
     public static Pizza createPizza(String type){
-        if (type.equals("cheese")) {
+        if ("cheese".equals(type)) {
             return new CaliforniaStyleCheesePizza();
-        } else if (type.equals("veggie")) {
+        } else if ("veggie".equals(type)) {
             return new CaliforniaStyleVeggiePizza();
         }
         return null;

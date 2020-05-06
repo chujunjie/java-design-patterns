@@ -6,7 +6,7 @@ package com.demo.designpatterns.structural.adapter;
  * @Date: Create in 18:11 2018/8/5
  * @Modified By
  */
-public class TransformAdapter implements Duck{
+public class TransformAdapter implements Duck {
 
     Turkey turkey;
 

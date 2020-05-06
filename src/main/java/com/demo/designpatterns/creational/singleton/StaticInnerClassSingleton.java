@@ -32,10 +32,10 @@ public class StaticInnerClassSingleton {
      * @return StaticInnerClassSingleton
      */
     public static StaticInnerClassSingleton getInstance() {
-        return SingletonHolder.instance;
+        return SingletonHolder.INSTANCE;
     }
 
     private static class SingletonHolder {
-        private final static StaticInnerClassSingleton instance = new StaticInnerClassSingleton();
+        private final static StaticInnerClassSingleton INSTANCE = new StaticInnerClassSingleton();
     }
 }

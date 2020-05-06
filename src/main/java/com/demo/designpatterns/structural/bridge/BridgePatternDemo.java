@@ -11,7 +11,7 @@ package com.demo.designpatterns.structural.bridge;
  * @Date: Create in 21:33 2019/1/25
  * @Modified By
  */
-public class bridgePatternDemo {
+public class BridgePatternDemo {
     public static void main(String[] args) {
 
         /* 账户的具体实现层Account与Blank的抽象层分离，

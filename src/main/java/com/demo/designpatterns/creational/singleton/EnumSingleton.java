@@ -6,14 +6,18 @@ package com.demo.designpatterns.creational.singleton;
  * @Date: Create in 21:49 2019/1/13
  * @Modified By
  */
-public enum EnumSingleton implements MySingleton{
+public enum EnumSingleton implements MySingleton {
+
+    /* 单例 */
     INSTANCE {
         @Override
-        public void doSomething() {  //实例方法
+        public void doSomething() {
             System.out.println("hello world");
         }
     };
-    private String data; // 属性
+
+    // 属性
+    private String data;
 
     public String getData() {
         return data;
