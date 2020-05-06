@@ -7,12 +7,23 @@ package com.demo.designpatterns.behavioral.observer;
  * @Modified By
  */
 public interface Subject {
-    //新增观察者
+
+    /**
+     * 新增观察者
+     *
+     * @param observer observer
+     */
     void registerObserver(Observer observer);
 
-    //移除观察者
+    /**
+     * 移除观察者
+     *
+     * @param observer observer
+     */
     void removeObserver(Observer observer);
 
-    //通知观察者
+    /**
+     * 通知观察者
+     */
     void notifyObserver();
 }

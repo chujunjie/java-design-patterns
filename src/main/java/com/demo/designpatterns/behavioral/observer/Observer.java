@@ -7,5 +7,13 @@ package com.demo.designpatterns.behavioral.observer;
  * @Modified By
  */
 public interface Observer {
+
+    /**
+     * 更新状态
+     *
+     * @param temperature temperature
+     * @param humidity    humidity
+     * @param pressure    pressure
+     */
     void update(float temperature, float humidity, float pressure);
 }

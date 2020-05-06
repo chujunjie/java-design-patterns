@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
  * @Modified By
  */
 public class Coffee extends DrinkWithHook {
+
     @Override
     void brewing() {
         System.out.println("泡咖啡...");
@@ -41,6 +42,4 @@ public class Coffee extends DrinkWithHook {
         }
         return answer;
     }
-
-
 }

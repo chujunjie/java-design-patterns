@@ -13,10 +13,15 @@ public class ConcreteSubject implements Subject {
     // 用来标记是否自动推送给观察者
     private boolean changed = true;
 
-    private ArrayList<Observer> observers = new ArrayList<>();  // 观察者列表
-    private float temperature;  // 温度
-    private float humidity;  // 湿度
-    private float pressure;  // 气压
+    // 观察者列表
+    private ArrayList<Observer> observers = new ArrayList<>();
+
+    // 温度
+    private float temperature;
+    // 湿度
+    private float humidity;
+    // 气压
+    private float pressure;
 
     // 这两个方法都需要一个观察者作为变量，该观察者是用来注册或被删除的。
     @Override

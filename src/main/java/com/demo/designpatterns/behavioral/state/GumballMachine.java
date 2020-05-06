@@ -19,8 +19,8 @@ public class GumballMachine {
     private State soldState;
     private State winnerState;
 
-    private State state = soldOutState;     //追踪当前状态
-    private int count;                   //记录糖果数
+    private State state = soldOutState;     // 追踪当前状态
+    private int count;                      // 记录糖果数
 
     {
         soldOutState = new SoldOutState(this);

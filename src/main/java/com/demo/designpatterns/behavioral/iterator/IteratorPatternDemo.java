@@ -27,7 +27,7 @@ public class IteratorPatternDemo {
         printAnimal(animalCollection);
     }
 
-    private static void printAnimal(AnimalCollection animalCollection){
+    private static void printAnimal(AnimalCollection animalCollection) {
         AnimalIterator it = animalCollection.getAnimalIterator();
         while (!it.isLastAnimal()) {
             System.out.println(it.nextAnimal().getName());

@@ -30,6 +30,5 @@ public class StrategyPatternDemo {
         customer.buy(20000D);
         System.out.println("客户本次需要支付的金额为：" + customer.pay());
     }
-
 }
 
